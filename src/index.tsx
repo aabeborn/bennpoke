@@ -1,11 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
+import Router from './components/router';
 import reportWebVitals from './reportWebVitals';
 import "./styles/index.scss"
 
 ReactDOM.render(
   <React.StrictMode>
-    <div>BennPoke</div>
+    <Router />
   </React.StrictMode>,
   document.getElementById('root')
 );
