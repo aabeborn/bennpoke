@@ -1,12 +1,16 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
+import Appbar from './components/appbar';
 import Router from './components/router';
 import reportWebVitals from './reportWebVitals';
 import "./styles/index.scss"
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router />
+    <div className="app w-full min-h-screen bg-white dark:bg-gray-800">
+      <Appbar/>
+      <Router />
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
