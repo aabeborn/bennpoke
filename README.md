@@ -5,7 +5,7 @@ BennPoke is a web application based on [https://pokeapi.co](PokeApi) used to try
 ## Stack
 
 - [Typescript](https://www.typescriptlang.org)
-- [React][https://react.com)
+- [React](https://react.com)
 - [TailwindCSS](https://tailwindcss.com)
 - [SASS](https://sass-lang.com)
 - [React-Query](https://react-query.tanstack.com)
