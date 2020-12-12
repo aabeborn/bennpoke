@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
+import { ReactQueryDevtools } from 'react-query-devtools'
 import Appbar from './components/appbar';
 import Router from './components/router';
 import reportWebVitals from './reportWebVitals';
