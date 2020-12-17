@@ -2,9 +2,9 @@ import * as React from "react"
 import { useInfiniteQuery } from "react-query"
 import {getPokemons} from "../../utils/api"
 import useIntersect from '../../hooks/useIntersect'
-import { Url } from "url"
-import { Console } from "console"
-// import {List} from "../../components/pokemon"
+import Card from "../../components/pokemon/Card"
+import {List} from "../../components/pokemon"
+import Loader from "../../components/loader"
 
 type PokemonPreview = {
     name: string;
@@ -32,21 +32,25 @@ const Home : React.FC<{}> = () => {
         enabled: canFetchMore
     })
     return (
-        <div className="flex flex-col items-center w-full p-4 xl:p-8">
-            {isFetching && !data
+        <div className="w-full flex-grow p-4 xl:p-8 bg-red-500">
+            {isFetching && (!data || data.length  <= 0) 
+                ? <Loader />
+                : "content"
+            }
+            {/* {isFetching && !data
                 ? "loading" 
                 : (
-                    <div>
+                    <List>
                         {data?.map((item: PokemonList, key: number) => {
                             return item.results?.map((pokemon :PokemonPreview , index: number) => {
-                                return <div key={`pokemon-list-${index}`}>{pokemon.name}</div>
+                                return <Card key={`pokemon-list-${index}`} name={pokemon.name} url={pokemon.url}></Card>
                             })
                         })}
                         <div ref={loadMoreRef}></div>
-                        {isFetchingMore ? <span className="text-white">loading...</span>: null}
-                    </div>
+                        {isFetchingMore ? <span className="text-white">loading...</span>: null} 
+                    </List>
                 )
-            }
+            }*/}
         </div>
     )
 }

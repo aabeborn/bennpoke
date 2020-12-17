@@ -8,12 +8,15 @@ import "./styles/index.scss"
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="app w-full min-h-screen bg-white dark:bg-gray-800">
-      <Appbar/>
-      <Router />
-    </div>
+    <>
+      <div className="flex flex-col overflow-hidden w-full h-full bg-white dark:bg-gray-800">
+        <Appbar/>
+        <Router />
+      </div>
+      <ReactQueryDevtools />
+    </>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.querySelector('#root')
 );
 
 // If you want to start measuring performance in your app, pass a function

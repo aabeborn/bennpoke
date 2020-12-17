@@ -19,7 +19,6 @@ export default function useIntersect({
     enabled?: boolean },
 ) {
     React.useEffect( () => {
-        console.log("intersect", enabled)
         if(!enabled) return 
         const observer = new IntersectionObserver(entries => entries.forEach(entry => entry.isIntersecting && onIntersect()),{
             root: root && root?.current,
@@ -30,7 +29,7 @@ export default function useIntersect({
         if(!element) return 
         observer.observe(element)
         return () => {
-            console.log("ciccio")
+            console.log("useIntersect more")
             observer.unobserve(element)
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
