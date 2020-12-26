@@ -22,6 +22,7 @@ interface PokemonList {
 const Home : React.FC<{}> = () => {
     // const[filters, setFilters] = useState(new Filters())
     const loadMoreRef = React.useRef<HTMLDivElement>(null)
+    // const [loadMoreRef, setLoadMoreRef] = use
     const {status,data, isFetching, isFetchingMore, fetchMore, canFetchMore, error} = useInfiniteQuery('pokemons', getPokemons, {
         getFetchMore: (lastGroup, allGroups) => lastGroup.next
         
@@ -31,26 +32,25 @@ const Home : React.FC<{}> = () => {
         onIntersect:fetchMore,
         enabled: canFetchMore
     })
+    React.useEffect(() => console.log("effect"))
     return (
-        <div className="w-full flex-grow p-4 xl:p-8 bg-red-500">
+        <div className="w-full flex-grow p-4 xl:p-8 bg-red-500 flex justify-start items-center flex-col overflow-y-scroll">
             {isFetching && (!data || data.length  <= 0) 
                 ? <Loader />
-                : "content"
-            }
-            {/* {isFetching && !data
-                ? "loading" 
                 : (
-                    <List>
+                <>
+                    <div className="w-full flex-1">
                         {data?.map((item: PokemonList, key: number) => {
                             return item.results?.map((pokemon :PokemonPreview , index: number) => {
                                 return <Card key={`pokemon-list-${index}`} name={pokemon.name} url={pokemon.url}></Card>
-                            })
+                                })
                         })}
-                        <div ref={loadMoreRef}></div>
-                        {isFetchingMore ? <span className="text-white">loading...</span>: null} 
-                    </List>
-                )
-            }*/}
+                        {isFetchingMore ? <span className="text-white"><Loader /></span>: null}                     
+                    </div>
+                   
+                </>)
+            }
+             <div  ref={loadMoreRef} ></div>
         </div>
     )
 }

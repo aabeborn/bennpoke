@@ -11,8 +11,8 @@ export default function useIntersect({
     enabled = true 
 }: 
 { 
-    root?: React.RefObject<HTMLElement>; 
-    target: React.RefObject<HTMLElement>; 
+    root?: React.MutableRefObject<HTMLElement | null>; 
+    target: React.MutableRefObject<HTMLElement | null>; 
     onIntersect: Function; 
     threshold?: number; 
     rootMargin?: string; 
@@ -29,9 +29,8 @@ export default function useIntersect({
         if(!element) return 
         observer.observe(element)
         return () => {
-            console.log("useIntersect more")
             observer.unobserve(element)
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[target.current, enabled])
+    },[target, enabled])
 }
