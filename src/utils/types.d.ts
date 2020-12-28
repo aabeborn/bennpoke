@@ -195,3 +195,4 @@ type PokemonCard = {
     name: string;
     sprites: Sprite
 }
+

@@ -496,6 +496,7 @@ module.exports = {
       0: '0px',
       full: '100%',
       screen: '100vh',
+      32: '8rem'
     },
     minWidth: {
       0: '0px',
@@ -819,7 +820,7 @@ module.exports = {
     lineHeight: ['responsive'],
     listStylePosition: ['responsive'],
     listStyleType: ['responsive'],
-    margin: ['responsive'],
+    margin: ['responsive', 'odd', 'even'],
     maxHeight: ['responsive'],
     maxWidth: ['responsive'],
     minHeight: ['responsive'],
@@ -831,7 +832,7 @@ module.exports = {
     outline: ['responsive', 'focus-within', 'focus'],
     overflow: ['responsive'],
     overscrollBehavior: ['responsive'],
-    padding: ['responsive'],
+    padding: ['responsive', 'odd', 'even'],
     placeContent: ['responsive'],
     placeItems: ['responsive'],
     placeSelf: ['responsive'],

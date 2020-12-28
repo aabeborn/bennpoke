@@ -16,5 +16,8 @@ export async function getPokemons(
 export async function getPokemon(key:string, url: RequestInfo) {
     const res = await fetch(url)
     const element:PokemonCard = await res.json();
-    return element
+    const imageUrl = element.sprites.other["official-artwork"].front_default.toString()
+    const imageBlob = await fetch(imageUrl)
+    const image =  URL.createObjectURL(await imageBlob.blob())
+    return {pokemon:element, sprite:image}
 }
