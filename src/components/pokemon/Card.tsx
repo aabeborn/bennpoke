@@ -38,9 +38,11 @@ const Card: React.FC<Props> = ({url, name}) => {
                 { isFetching 
                     ? ( <>
                             <div className="w-1/3 max-w-md h-1/3 max-h-1/3 sm:w-25 sm:-top-0 sm:h-24 sm:ml-0 sm:absolute animate-pulse dark:bg-gray-500 bg-gray-400 rounded-md"></div>
-                            <div className="sm:mt-11 relative w-full">
-                            <div className="w-1/2 h-7 pt-7 animate-pulse dark:bg-gray-500 bg-gray-400 rounded-md relative"></div>
+                            <div className="sm:mt-11 relative w-full inline-flex justify-between">
+                                <div className="w-1/2 h-7 pt-7 animate-pulse dark:bg-gray-500 bg-gray-400 rounded-md relative"></div>
+                                <div className="w-1/3 h-7 pt-7 animate-pulse dark:bg-gray-500 bg-gray-400 rounded-md relative"></div>
                             </div>
+                            <div className="w-1/2 h-9 mt-4 animate-pulse dark:bg-gray-500 bg-gray-400 rounded-md relative"></div>
                         </>
                     )
                     :(<>
