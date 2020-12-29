@@ -1,18 +1,18 @@
-export {default as BugType} from "./Bug";
-export {default as DarkType} from "./Dark";
-export {default as DragonType} from "./Dragon";
-export {default as ElectricType} from "./Electric";
-export {default as FairyType} from "./Fairy";
-export {default as FightType} from "./Fighting";
-export {default as FireType} from "./Fire";
-export {default as FlyType} from "./Flying";
-export {default as GhostType} from "./Ghost";
-export {default as GrassType} from "./Grass";
-export {default as GroundType} from "./Ground";
-export {default as IceType} from "./Ice";
-export {default as NormalType} from "./Normal";
-export {default as PoisonType} from "./Poison";
-export {default as PsychicType} from "./Psychic";
-export {default as RockType} from "./Rock";
-export {default as SteelType} from "./Steel";
-export {default as WaterType} from "./Water";
+export { default as BugType } from "./Bug"
+export { default as DarkType } from "./Dark"
+export { default as DragonType } from "./Dragon"
+export { default as ElectricType } from "./Electric"
+export { default as FairyType } from "./Fairy"
+export { default as FightType } from "./Fighting"
+export { default as FireType } from "./Fire"
+export { default as FlyType } from "./Flying"
+export { default as GhostType } from "./Ghost"
+export { default as GrassType } from "./Grass"
+export { default as GroundType } from "./Ground"
+export { default as IceType } from "./Ice"
+export { default as NormalType } from "./Normal"
+export { default as PoisonType } from "./Poison"
+export { default as PsychicType } from "./Psychic"
+export { default as RockType } from "./Rock"
+export { default as SteelType } from "./Steel"
+export { default as WaterType } from "./Water"
