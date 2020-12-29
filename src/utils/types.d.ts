@@ -177,6 +177,13 @@ type GenerationVIIISprite = {
     } 
 }
 
+type PokemonType = {
+    slot: number,
+    type: {
+        name: string,
+        url: Url
+    }
+}
 
 
 interface PokemonList {
@@ -193,6 +200,7 @@ type PokemonPreview = {
 type PokemonCard = {
     id: number;
     name: string;
-    sprites: Sprite
+    sprites: Sprite;
+    types: PokemonType[]
 }
 

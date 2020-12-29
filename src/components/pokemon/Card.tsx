@@ -1,7 +1,29 @@
 import clsx from 'clsx';
+import { type } from 'os';
 import * as React from 'react';
 import { useQuery } from 'react-query';
 import {getPokemon } from '../../utils/api';
+import Pill from '../pill';
+import {
+    BugType,
+    DarkType,
+    ElectricType,
+    FairyType,
+    FightType,
+    FlyType,
+    GhostType,
+    GrassType,
+    GroundType,
+    IceType,
+    NormalType,
+    PoisonType,
+    PsychicType,
+    RockType,
+    SteelType,
+    WaterType,
+    FireType,
+    DragonType
+} from "../icons"
 interface Props {
     url: URL,
     name: string
@@ -12,7 +34,7 @@ const Card: React.FC<Props> = ({url, name}) => {
     const [imageLoading,setImageLoading] = React.useState(true)
     return (
         <div className="relative block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 pt-4 sm:pt-10 pb-2 px-4 mb-4  overflow-hidden">
-            <div className="w-full bg-gray-100 dark:bg-gray-700  min-h-32 flex  p-4">
+            <div className="w-full bg-gray-100 dark:bg-gray-700  min-h-32 flex flex-col p-4">
                 { isFetching 
                     ? ( <>
                             <div className="w-1/3 max-w-md h-1/3 max-h-1/3 sm:w-25 sm:-top-0 sm:h-24 sm:ml-0 sm:absolute animate-pulse dark:bg-gray-500 bg-gray-400 rounded-md"></div>
@@ -31,7 +53,10 @@ const Card: React.FC<Props> = ({url, name}) => {
                         />
                         <div className="sm:mt-11 w-full flex z-10">
                             <span className="text-2xl dark:text-white text-gray-900 capitalize flex-1 flex-shrink">{data?.pokemon.name}</span>
-                            <span className="text-2xl dark:text-yellow-400 text-red-500 uppercase">#{data?.pokemon.id}</span>
+                            <span className="text-2xl dark:text-yellow-400 text-red-500 uppercase">#{data?.pokemon.id ? pad(data?.pokemon.id, 4) : ""}</span>
+                        </div>
+                        <div className="z-10 flex-inline w-full mt-4">
+                            {data?.pokemon.types.map((type, index) => <Pill classes={`${index > 0 ? "ml-2" : ""}`} key={`${data?.pokemon.id}-${type.slot}`} text={type.type.name} icon={getTypeImage(type.type.name, {classes:"h-5 w-auto", childClasses: "text-white dark:text-gray-800"})}/>)}
                         </div>
                         </>
                     )
@@ -41,6 +66,39 @@ const Card: React.FC<Props> = ({url, name}) => {
         </div>
     )
 } 
+
+function pad(number:string|number,max:number):string {
+    if(typeof number === "number") {
+        number = number.toString()
+    }
+    return number.length < max ? pad("0" + number, max) : number
+}
+
+function getTypeImage(type: string, props:{}):React.ReactNode {
+    switch(type){
+        case "normal": return <NormalType {...props}/>;
+        case "fighting": return <FightType {...props} />;
+        case "flying": return <FlyType {...props}/>;
+        case "poison": return <PoisonType {...props}/>;
+        case "ground": return <GroundType {...props}/>;
+        case "rock": return <RockType {...props}/>;
+        case "bug": return <BugType {...props}/>;
+        case "ghost": return <GhostType {...props}/>;
+        case "steel": return <SteelType {...props}/>;
+        case "fire": return <FireType {...props}/>;
+        case "water": return <WaterType {...props}/>;
+        case "grass": return <GrassType {...props}/>;
+        case "electric": return <ElectricType {...props}/>;
+        case "psychic": return <PsychicType {...props}/>;
+        case "ice": return <IceType {...props}/>;
+        case "dragon": return <DragonType {...props}/>;
+        case "dark": return <DarkType {...props}/>;
+        case "fairy": return <FairyType {...props}/>;
+        // case "unknown": return UnknownType;
+        // case "shadow": return ShadowType;
+        default: alert(`${type} not found`);return NormalType
+    }
+}
 
 const PokeBackground: React.FC = () => {
     return (
