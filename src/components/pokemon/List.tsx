@@ -10,27 +10,27 @@ const List: React.FC = ({ children }) => {
 	const {
 		data,
 		isFetching,
-		isFetchingMore,
-		fetchMore,
-		canFetchMore,
+		isFetchingNextPage,
+		fetchNextPage,
+		hasNextPage,
 		error,
-	} = useInfiniteQuery("pokemons", getPokemons, {
-		getFetchMore: (lastPage: PokemonList, allPages: PokemonList[]) =>
+	} = useInfiniteQuery("pokemons", ({pageParam}) => getPokemons(pageParam), {
+		getNextPageParam: (lastPage: PokemonList, allPages: PokemonList[]) =>
 			lastPage.next,
 	})
 	useIntersect({
 		target: more,
-		onIntersect: fetchMore,
-		enabled: canFetchMore,
+		onIntersect: fetchNextPage,
+		enabled: hasNextPage,
 	})
 	React.useEffect(() => console.log("list effect"))
 	return (
 		<div className="relative max-w-6xl w-full flex flex-wrap justify-center">
-			{isFetching && (!data || data.length <= 0) ? (
+			{isFetching && (!data || data.pages.length <= 0) ? (
 				<Loader />
 			) : (
 				<>
-					{data?.map((item: PokemonList) => {
+					{data?.pages?.map((item: PokemonList) => {
 						return item.results?.map(
 							(pokemon: PokemonPreview, index: number) => {
 								return (
@@ -42,7 +42,7 @@ const List: React.FC = ({ children }) => {
 							},
 						)
 					})}
-					{isFetchingMore ? <Loader /> : null}
+					{isFetchingNextPage ? <Loader /> : null}
 				</>
 			)}
 			<div ref={more}></div>

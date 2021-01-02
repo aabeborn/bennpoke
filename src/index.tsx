@@ -1,19 +1,24 @@
 import * as React from "react"
 import ReactDOM from "react-dom"
+import { QueryClientProvider, QueryClient } from "react-query"
 import { ReactQueryDevtools } from "react-query-devtools"
 import Appbar from "./components/appbar"
 import Router from "./components/router"
 import reportWebVitals from "./reportWebVitals"
 import "./styles/index.scss"
 
+const client = new QueryClient()
+
 ReactDOM.render(
 	<React.StrictMode>
 		<>
-			<div className="flex flex-col overflow-hidden w-full h-full bg-white dark:bg-gray-800">
-				<Appbar />
-				<Router />
-			</div>
-			<ReactQueryDevtools />
+			<QueryClientProvider client={client}>
+				<div className="flex flex-col overflow-hidden w-full h-full bg-white dark:bg-gray-800">
+					<Appbar />
+					<Router />
+				</div>
+				<ReactQueryDevtools />
+			</QueryClientProvider>
 		</>
 	</React.StrictMode>,
 	document.querySelector("#root"),
