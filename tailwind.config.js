@@ -70,6 +70,7 @@ module.exports = {
       ping: 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite',
       pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       bounce: 'bounce 1s infinite',
+      shake: 'shake 1.25s cubic-bezier(.36,.07,.19,.97) infinite;'
     },
     backgroundColor: (theme) => theme('colors'),
     backgroundImage: {
@@ -411,6 +412,26 @@ module.exports = {
           animationTimingFunction: 'cubic-bezier(0,0,0.2,1)',
         },
       },
+      shake: {
+        "0%": {
+          transform: "translate(0, 0) rotate(0)"
+        },
+        "20%": {
+          transform: "translate(-6px, 0) rotate(-20deg)"
+        },
+        "30%": {
+          transform: "translate(6px, 0) rotate(20deg)"
+        },
+        "50%": {
+          transform: "translate(-6px, 0) rotate(-10deg)"
+        },
+        "60%": {
+          transform: "translate(6px, 0) rotate(10deg)"
+        },
+        "100%": {
+          transform: "translate(0, 0) rotate(0)"
+      }
+      }
     },
     letterSpacing: {
       tighter: '-0.05em',
@@ -475,6 +496,7 @@ module.exports = {
       0: '0px',
       full: '100%',
       screen: '100vh',
+      32: '8rem'
     },
     minWidth: {
       0: '0px',
@@ -798,19 +820,19 @@ module.exports = {
     lineHeight: ['responsive'],
     listStylePosition: ['responsive'],
     listStyleType: ['responsive'],
-    margin: ['responsive'],
+    margin: ['responsive', 'odd', 'even'],
     maxHeight: ['responsive'],
     maxWidth: ['responsive'],
     minHeight: ['responsive'],
     minWidth: ['responsive'],
     objectFit: ['responsive'],
     objectPosition: ['responsive'],
-    opacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus'],
+    opacity: ['responsive', 'group-hover', 'focus-within', 'hover', 'focus', 'disabled'],
     order: ['responsive'],
     outline: ['responsive', 'focus-within', 'focus'],
     overflow: ['responsive'],
     overscrollBehavior: ['responsive'],
-    padding: ['responsive'],
+    padding: ['responsive', 'odd', 'even'],
     placeContent: ['responsive'],
     placeItems: ['responsive'],
     placeSelf: ['responsive'],

@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const NotFound : React.FC<{}> = () => {
-    return <div>NotFound</div>
+const NotFound: React.FC<{}> = () => {
+	return <div>NotFound</div>
 }
 export default NotFound
