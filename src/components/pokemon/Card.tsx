@@ -25,12 +25,13 @@ import {
 	DragonType,
 } from "../icons"
 interface Props {
-	url: URL
+	url: string
 	name: string
 }
 
 const Card: React.FC<Props> = ({ url, name }) => {
-	const { data, isFetching, status, error } = useQuery([name, url], getPokemon)
+	const { data, isFetching, status, error } = useQuery([name,url],() => getPokemon(name,url))
+	// const { data, isFetching, status, error } = useQuery([name, url], getPokemon)
 	const [imageLoading, setImageLoading] = React.useState(true)
 	return (
 		<div className="relative block w-full sm:w-1/2 md:w-1/3 lg:w-1/4 pt-4 sm:pt-10 pb-2 px-4 mb-4  overflow-hidden">
