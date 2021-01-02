@@ -144,7 +144,7 @@ const PokeBackground: React.FC = () => {
 			height="120"
 			viewBox="0 0 132 120"
 			xmlns="http://www.w3.org/2000/svg">
-			<g clip-path="url(#clip0)">
+			<g clipPath="url(#clip0)">
 				<path
 					d="M51.844 30.9063C78.5236 12.9431 113.899 17.9795 134.315 41.4889L109.012 58.5256C98.1209 48.5686 81.3788 46.9924 68.5089 55.6576C55.639 64.3229 50.8019 80.4283 55.9309 94.2648L30.6275 111.302C16.5245 83.5415 25.1644 48.8696 51.844 30.9063Z"
 					className="fill-current text-gray-200 dark:text-gray-500"

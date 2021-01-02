@@ -20,7 +20,7 @@ const List: React.FC = ({ children }) => {
 	})
 	useIntersect({
 		target: more,
-		onIntersect: fetchNextPage,
+		onIntersect: () => {console.log("ciccio");fetchNextPage()},
 		enabled: hasNextPage,
 	})
 	React.useEffect(() => console.log("list effect"))
